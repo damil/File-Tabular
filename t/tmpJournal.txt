@@ -1,0 +1,119 @@
+2005-06-29 10:47:40&ROW&194&Acirc&Â&capital A, circumflex accent
+2005-06-29 10:47:40&ROW&202&Ecirc&Ê&capital E, circumflex accent
+2005-06-29 10:47:40&ROW&206&Icirc&Î&capital I, circumflex accent
+2005-06-29 10:47:40&ROW&212&Ocirc&Ô&capital O, circumflex accent
+2005-06-29 10:47:40&ROW&219&Ucirc&Û&capital U, circumflex accent
+2005-06-29 10:47:40&ROW&226&acirc&â&small a, circumflex accent
+2005-06-29 10:47:40&ROW&234&ecirc&ê&small e, circumflex accent
+2005-06-29 10:47:40&ROW&238&icirc&î&small i, circumflex accent
+2005-06-29 10:47:40&ROW&244&ocirc&ô&small o, circumflex accent
+2005-06-29 10:47:40&ROW&251&ucirc&û&small u, circumflex accent
+2005-06-29 10:47:40&SPLICE&-1&0&10
+2005-06-29 10:47:40&ENDSPLICES
+2005-06-29 10:47:40&SPLICE&2&2&
+2005-06-29 10:47:40&ROW&194&Acirc&Â&capital A, circumflex accent
+2005-06-29 10:47:40&ROW&202&Ecirc&Ê&capital E, circumflex accent
+2005-06-29 10:47:40&ROW&206&Icirc&Î&capital I, circumflex accent
+2005-06-29 10:47:40&SPLICE&5&1&3
+2005-06-29 10:47:40&ROW&194&Acirc&Â&capital A, circumflex accent
+2005-06-29 10:47:40&ROW&202&Ecirc&Ê&capital E, circumflex accent
+2005-06-29 10:47:40&ROW&206&Icirc&Î&capital I, circumflex accent
+2005-06-29 10:47:40&ROW&212&Ocirc&Ô&capital O, circumflex accent
+2005-06-29 10:47:40&SPLICE&8&0&4
+2005-06-29 10:47:40&ROW&194&Acirc&Â&capital A, circumflex accent
+2005-06-29 10:47:40&ROW&202&Ecirc&Ê&capital E, circumflex accent
+2005-06-29 10:47:40&SPLICE&-1&0&2
+2005-06-29 10:47:40&ENDSPLICES
+2005-06-29 10:47:40&CLEAR
+2005-06-29 10:47:40&ROW&194&Acirc&Â&capital A, circumflex accent
+2005-06-29 10:47:40&ROW&202&Ecirc&Ê&capital E, circumflex accent
+2005-06-29 10:47:40&ROW&206&Icirc&Î&capital I, circumflex accent
+2005-06-29 10:47:40&ROW&212&Ocirc&Ô&capital O, circumflex accent
+2005-06-29 10:47:40&ROW&219&Ucirc&Û&capital U, circumflex accent
+2005-06-29 10:47:40&ROW&226&acirc&â&small a, circumflex accent
+2005-06-29 10:47:40&ROW&234&ecirc&ê&small e, circumflex accent
+2005-06-29 10:47:40&ROW&238&icirc&î&small i, circumflex accent
+2005-06-29 10:47:40&ROW&244&ocirc&ô&small o, circumflex accent
+2005-06-29 10:47:40&ROW&251&ucirc&û&small u, circumflex accent
+2005-06-29 10:47:40&SPLICE&-1&0&10
+2005-06-29 10:47:40&ENDSPLICES
+2005-06-29 10:47:40&KEY&Acirc&
+2005-06-29 10:47:40&ROW&#&foo&&
+2005-06-29 10:47:40&KEY&ocirc&1
+2005-06-29 10:47:40&ROW&#&foo&&
+2005-06-29 10:47:40&KEY&Icirc&1
+2005-06-29 10:47:40&ENDKEYS&Name
+2005-06-29 10:47:40&CLEAR
+2005-06-29 10:47:40&ROW&38&amp&%26&ampersand 
+2005-06-29 10:47:40&ROW&62&gt&>&greater than
+2005-06-29 10:47:40&ROW&60&lt&<&less than
+2005-06-29 10:47:40&ROW&34&quot&"&double quote
+2005-06-29 10:47:40&ROW&39&apos&'&single quote
+2005-06-29 10:47:40&ROW&198&AElig&Æ&capital AE diphthong (ligature)
+2005-06-29 10:47:40&ROW&193&Aacute&Á&capital A, acute accent
+2005-06-29 10:47:40&ROW&194&Acirc&Â&capital A, circumflex accent
+2005-06-29 10:47:40&ROW&192&Agrave&À&capital A, grave accent
+2005-06-29 10:47:40&ROW&197&Aring&Å&capital A, ring
+2005-06-29 10:47:40&ROW&195&Atilde&Ã&capital A, tilde
+2005-06-29 10:47:40&ROW&196&Auml&Ä&capital A, dieresis or umlaut mark
+2005-06-29 10:47:40&ROW&199&Ccedil&Ç&capital C, cedilla
+2005-06-29 10:47:40&ROW&208&ETH&Ğ&capital Eth, Icelandic
+2005-06-29 10:47:40&ROW&201&Eacute&É&capital E, acute accent
+2005-06-29 10:47:40&ROW&202&Ecirc&Ê&capital E, circumflex accent
+2005-06-29 10:47:40&ROW&200&Egrave&È&capital E, grave accent
+2005-06-29 10:47:40&ROW&203&Euml&Ë&capital E, dieresis or umlaut mark
+2005-06-29 10:47:40&ROW&205&Iacute&Í&capital I, acute accent
+2005-06-29 10:47:40&ROW&206&Icirc&Î&capital I, circumflex accent
+2005-06-29 10:47:40&ROW&204&Igrave&Ì&capital I, grave accent
+2005-06-29 10:47:40&ROW&207&Iuml&Ï&capital I, dieresis or umlaut mark
+2005-06-29 10:47:40&ROW&209&Ntilde&Ñ&capital N, tilde
+2005-06-29 10:47:40&ROW&211&Oacute&Ó&capital O, acute accent
+2005-06-29 10:47:40&ROW&212&Ocirc&Ô&capital O, circumflex accent
+2005-06-29 10:47:40&ROW&210&Ograve&Ò&capital O, grave accent
+2005-06-29 10:47:40&ROW&216&Oslash&Ø&capital O, slash
+2005-06-29 10:47:40&ROW&213&Otilde&Õ&capital O, tilde
+2005-06-29 10:47:40&ROW&214&Ouml&Ö&capital O, dieresis or umlaut mark
+2005-06-29 10:47:40&ROW&222&THORN&Ş&capital THORN, Icelandic
+2005-06-29 10:47:40&ROW&218&Uacute&Ú&capital U, acute accent
+2005-06-29 10:47:40&ROW&219&Ucirc&Û&capital U, circumflex accent
+2005-06-29 10:47:40&ROW&217&Ugrave&Ù&capital U, grave accent
+2005-06-29 10:47:40&ROW&220&Uuml&Ü&capital U, dieresis or umlaut mark
+2005-06-29 10:47:40&ROW&221&Yacute&İ&capital Y, acute accent
+2005-06-29 10:47:40&ROW&225&aacute&á&small a, acute accent
+2005-06-29 10:47:40&ROW&226&acirc&â&small a, circumflex accent
+2005-06-29 10:47:40&ROW&230&aelig&æ&small ae diphthong (ligature)
+2005-06-29 10:47:40&ROW&224&agrave&à&small a, grave accent
+2005-06-29 10:47:40&ROW&229&aring&å&small a, ring
+2005-06-29 10:47:40&ROW&227&atilde&ã&small a, tilde
+2005-06-29 10:47:40&ROW&228&auml&ä&small a, dieresis or umlaut mark
+2005-06-29 10:47:40&ROW&231&ccedil&ç&small c, cedilla
+2005-06-29 10:47:40&ROW&233&eacute&é&small e, acute accent
+2005-06-29 10:47:40&ROW&234&ecirc&ê&small e, circumflex accent
+2005-06-29 10:47:40&ROW&232&egrave&è&small e, grave accent
+2005-06-29 10:47:40&ROW&240&eth&ğ&small eth, Icelandic
+2005-06-29 10:47:40&ROW&235&euml&ë&small e, dieresis or umlaut mark
+2005-06-29 10:47:40&ROW&237&iacute&í&small i, acute accent
+2005-06-29 10:47:40&ROW&238&icirc&î&small i, circumflex accent
+2005-06-29 10:47:40&ROW&236&igrave&ì&small i, grave accent
+2005-06-29 10:47:40&ROW&239&iuml&ï&small i, dieresis or umlaut mark
+2005-06-29 10:47:40&ROW&241&ntilde&ñ&small n, tilde
+2005-06-29 10:47:40&ROW&243&oacute&ó&small o, acute accent
+2005-06-29 10:47:40&ROW&244&ocirc&ô&small o, circumflex accent
+2005-06-29 10:47:40&ROW&242&ograve&ò&small o, grave accent
+2005-06-29 10:47:40&ROW&248&oslash&ø&small o, slash
+2005-06-29 10:47:40&ROW&245&otilde&õ&small o, tilde
+2005-06-29 10:47:40&ROW&246&ouml&ö&small o, dieresis or umlaut mark
+2005-06-29 10:47:40&ROW&223&szlig&ß&small sharp s, German (sz ligature)
+2005-06-29 10:47:40&ROW&254&thorn&ş&small thorn, Icelandic
+2005-06-29 10:47:40&ROW&250&uacute&ú&small u, acute accent
+2005-06-29 10:47:40&ROW&251&ucirc&û&small u, circumflex accent
+2005-06-29 10:47:40&ROW&249&ugrave&ù&small u, grave accent
+2005-06-29 10:47:40&ROW&252&uuml&ü&small u, dieresis or umlaut mark
+2005-06-29 10:47:40&ROW&253&yacute&ı&small y, acute accent
+2005-06-29 10:47:40&ROW&255&yuml&ÿ&small y, dieresis or umlaut mark
+2005-06-29 10:47:40&SPLICE&-1&0&67
+2005-06-29 10:47:40&ENDSPLICES
+2005-06-29 10:47:40&ROW&#&foo&&
+2005-06-29 10:47:40&ROW&#&foo&&
+2005-06-29 10:47:40&SPLICE&-1&0&2
+2005-06-29 10:47:40&ENDSPLICES

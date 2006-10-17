@@ -1,12 +1,16 @@
 Revision history for Perl extension File::Tabular.
 
+0.70 15.10.2006 - Added support for escape sequences in fieldSep/recordSep
+
 0.69 08.06.2006 - Fixed bug: date2str
 
-0.68 04.04.2006 - Fixed bug: new() was creating a closure with circular dependencies
+0.68 04.04.2006 - Fixed bug: new() was creating a closure with circular 
+                  dependencies
 
 0.67 02.03.2006 - Fixed bug: "use locale" was missing
 
-0.66 26.09.2005 - Fixed bug in _cplSubQ, accented chars no longer go through quotemeta
+0.66 26.09.2005 - Fixed bug in _cplSubQ, accented chars no longer go 
+                  through quotemeta
 
 0.65 05.06.2005 - Added special query "KEY:value" to build a regex that 
 	          searches on the first column.

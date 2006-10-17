@@ -158,6 +158,7 @@ from the following list :
 =item fieldSep
 
 field separator : any character except '%' ('|' by default).
+Escape sequences like C<\t> are admitted.
 
 =item recordSep
 

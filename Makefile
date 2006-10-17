@@ -24,23 +24,23 @@
 # These definitions are from config.sh (via C:/Perl/lib/Config.pm)
 
 # They may have been overridden via Makefile.PL or on the command line
-AR = lib
-CC = cl
+AR = ar
+CC = gcc
 CCCDLFLAGS =  
 CCDLFLAGS =  
 DLEXT = dll
 DLSRC = dl_win32.xs
-LD = link
-LDDLFLAGS = -dll -nologo -nodefaultlib -release  -libpath:"c:\Perl\lib\CORE"  -machine:x86
-LDFLAGS = -nologo -nodefaultlib -release  -libpath:"c:\Perl\lib\CORE"  -machine:x86
+LD = gcc
+LDDLFLAGS = -mdll -L"C:\Perl\lib\CORE"
+LDFLAGS = -nologo -nodefaultlib -debug -opt:ref,icf  -libpath:"C:\Perl\lib\CORE"  -machine:x86
 LIBC = msvcrt.lib
 LIB_EXT = .lib
-OBJ_EXT = .obj
+OBJ_EXT = .o
 OSNAME = MSWin32
-OSVERS = 5.1
+OSVERS = 5.0
 RANLIB = rem
-SITELIBEXP = c:\Perl\site\lib
-SITEARCHEXP = c:\Perl\site\lib
+SITELIBEXP = C:\Perl\site\lib
+SITEARCHEXP = C:\Perl\site\lib
 SO = dll
 EXE_EXT = .exe
 FULL_AR = 
@@ -67,48 +67,59 @@ INST_BIN = blib\bin
 INST_LIB = blib\lib
 INST_MAN1DIR = blib\man1
 INST_MAN3DIR = blib\man3
+INST_HTMLDIR = blib\html
 MAN1EXT = 1
 MAN3EXT = 3
 INSTALLDIRS = site
 DESTDIR = 
 PREFIX = $(SITEPREFIX)
-PERLPREFIX = c:\Perl
-SITEPREFIX = c:\Perl\site
+PERLPREFIX = C:\Perl
+SITEPREFIX = C:\Perl\site
 VENDORPREFIX = 
-INSTALLPRIVLIB = c:\Perl\lib
+INSTALLPRIVLIB = C:\Perl\lib
 DESTINSTALLPRIVLIB = $(DESTDIR)$(INSTALLPRIVLIB)
-INSTALLSITELIB = c:\Perl\site\lib
+INSTALLSITELIB = C:\Perl\site\lib
 DESTINSTALLSITELIB = $(DESTDIR)$(INSTALLSITELIB)
 INSTALLVENDORLIB = 
 DESTINSTALLVENDORLIB = $(DESTDIR)$(INSTALLVENDORLIB)
-INSTALLARCHLIB = c:\Perl\lib
+INSTALLARCHLIB = C:\Perl\lib
 DESTINSTALLARCHLIB = $(DESTDIR)$(INSTALLARCHLIB)
-INSTALLSITEARCH = c:\Perl\site\lib
+INSTALLSITEARCH = C:\Perl\site\lib
 DESTINSTALLSITEARCH = $(DESTDIR)$(INSTALLSITEARCH)
 INSTALLVENDORARCH = 
 DESTINSTALLVENDORARCH = $(DESTDIR)$(INSTALLVENDORARCH)
-INSTALLBIN = c:\Perl\bin
+INSTALLBIN = C:\Perl\bin
 DESTINSTALLBIN = $(DESTDIR)$(INSTALLBIN)
-INSTALLSITEBIN = c:\Perl\bin
+INSTALLSITEBIN = C:\Perl\bin
 DESTINSTALLSITEBIN = $(DESTDIR)$(INSTALLSITEBIN)
 INSTALLVENDORBIN = 
 DESTINSTALLVENDORBIN = $(DESTDIR)$(INSTALLVENDORBIN)
-INSTALLSCRIPT = c:\Perl\bin
+INSTALLSCRIPT = C:\Perl\bin
 DESTINSTALLSCRIPT = $(DESTDIR)$(INSTALLSCRIPT)
-INSTALLMAN1DIR = c:\Perl\man\man1
+INSTALLSITESCRIPT = $(INSTALLSCRIPT)
+DESTINSTALLSITESCRIPT = $(DESTDIR)$(INSTALLSITESCRIPT)
+INSTALLVENDORSCRIPT = 
+DESTINSTALLVENDORSCRIPT = $(DESTDIR)$(INSTALLVENDORSCRIPT)
+INSTALLMAN1DIR = C:\Perl\man\man1
 DESTINSTALLMAN1DIR = $(DESTDIR)$(INSTALLMAN1DIR)
 INSTALLSITEMAN1DIR = $(INSTALLMAN1DIR)
 DESTINSTALLSITEMAN1DIR = $(DESTDIR)$(INSTALLSITEMAN1DIR)
 INSTALLVENDORMAN1DIR = 
 DESTINSTALLVENDORMAN1DIR = $(DESTDIR)$(INSTALLVENDORMAN1DIR)
-INSTALLMAN3DIR = c:\Perl\man\man3
+INSTALLMAN3DIR = C:\Perl\man\man3
 DESTINSTALLMAN3DIR = $(DESTDIR)$(INSTALLMAN3DIR)
 INSTALLSITEMAN3DIR = $(INSTALLMAN3DIR)
 DESTINSTALLSITEMAN3DIR = $(DESTDIR)$(INSTALLSITEMAN3DIR)
 INSTALLVENDORMAN3DIR = 
 DESTINSTALLVENDORMAN3DIR = $(DESTDIR)$(INSTALLVENDORMAN3DIR)
-PERL_LIB = c:\Perl\lib
-PERL_ARCHLIB = c:\Perl\lib
+INSTALLHTMLDIR = C:\Perl\html
+DESTINSTALLHTMLDIR = $(DESTDIR)$(INSTALLHTMLDIR)
+INSTALLSITEHTMLDIR = C:\Perl\html
+DESTINSTALLSITEHTMLDIR = $(DESTDIR)$(INSTALLSITEHTMLDIR)
+INSTALLVENDORHTMLDIR = C:\Perl\html
+DESTINSTALLVENDORHTMLDIR = $(DESTDIR)$(INSTALLVENDORHTMLDIR)
+PERL_LIB = C:\Perl\lib
+PERL_ARCHLIB = C:\Perl\lib
 LIBPERL_A = libperl.lib
 FIRST_MAKEFILE = Makefile
 MAKEFILE_OLD = Makefile.old
@@ -283,7 +294,7 @@ PASTHRU = -nologo
 
 
 # --- MakeMaker top_targets section:
-all :: pure_all
+all :: pure_all htmlifypods
 	$(NOECHO) $(NOOP)
 
 
@@ -403,6 +414,18 @@ manifypods : pure_all  \
 
 
 
+# --- MakeMaker htmlifypods section:
+
+POD2HTML_EXE = $(PERLRUN) "-MActivePerl::DocTools" -e "UpdateHTML_blib(installdirs => "$(INSTALLDIRS)")"
+POD2HTML = $(POD2HTML_EXE)
+
+
+htmlifypods :  \
+	lib/File/Tabular.pm
+	$(NOECHO) $(POD2HTML)
+
+
+
 # --- MakeMaker processPL section:
 
 
@@ -449,7 +472,8 @@ clean :: clean_subdirs
 	  perlmain.c so_locations \
 	  $(BASEEXT).exp 
 	- $(RM_RF) \
-	  *.pdb blib 
+	  dll.exp dll.base \
+	  blib 
 	- $(MV) $(FIRST_MAKEFILE) $(MAKEFILE_OLD) $(DEV_NULL)
 
 
@@ -601,7 +625,7 @@ distsignature : create_distdir
 
 # --- MakeMaker install section:
 
-install :: all pure_install doc_install
+install :: all pure_install doc_install doc_update
 	$(NOECHO) $(NOOP)
 
 install_perl :: all pure_perl_install doc_perl_install
@@ -619,6 +643,9 @@ pure_install :: pure_$(INSTALLDIRS)_install
 doc_install :: doc_$(INSTALLDIRS)_install
 	$(NOECHO) $(NOOP)
 
+doc_update ::
+	$(NOECHO) $(PERLRUN) "-MActivePerl::DocTools" -e ActivePerl::DocTools::WriteTOC
+
 pure__install : pure_site_install
 	$(NOECHO) $(ECHO) INSTALLDIRS not defined, defaulting to INSTALLDIRS=site
 
@@ -634,7 +661,8 @@ pure_perl_install ::
 		$(INST_BIN) $(DESTINSTALLBIN) \
 		$(INST_SCRIPT) $(DESTINSTALLSCRIPT) \
 		$(INST_MAN1DIR) $(DESTINSTALLMAN1DIR) \
-		$(INST_MAN3DIR) $(DESTINSTALLMAN3DIR)
+		$(INST_MAN3DIR) $(DESTINSTALLMAN3DIR) \
+		$(INST_HTMLDIR) $(DESTINSTALLHTMLDIR)
 	$(NOECHO) $(WARN_IF_OLD_PACKLIST) \
 		$(SITEARCHEXP)\auto\$(FULLEXT)
 
@@ -646,9 +674,10 @@ pure_site_install ::
 		$(INST_LIB) $(DESTINSTALLSITELIB) \
 		$(INST_ARCHLIB) $(DESTINSTALLSITEARCH) \
 		$(INST_BIN) $(DESTINSTALLSITEBIN) \
-		$(INST_SCRIPT) $(DESTINSTALLSCRIPT) \
+		$(INST_SCRIPT) $(DESTINSTALLSITESCRIPT) \
 		$(INST_MAN1DIR) $(DESTINSTALLSITEMAN1DIR) \
-		$(INST_MAN3DIR) $(DESTINSTALLSITEMAN3DIR)
+		$(INST_MAN3DIR) $(DESTINSTALLSITEMAN3DIR) \
+		$(INST_HTMLDIR) $(DESTINSTALLSITEHTMLDIR)
 	$(NOECHO) $(WARN_IF_OLD_PACKLIST) \
 		$(PERL_ARCHLIB)\auto\$(FULLEXT)
 
@@ -659,9 +688,10 @@ pure_vendor_install ::
 		$(INST_LIB) $(DESTINSTALLVENDORLIB) \
 		$(INST_ARCHLIB) $(DESTINSTALLVENDORARCH) \
 		$(INST_BIN) $(DESTINSTALLVENDORBIN) \
-		$(INST_SCRIPT) $(DESTINSTALLSCRIPT) \
+		$(INST_SCRIPT) $(DESTINSTALLVENDORSCRIPT) \
 		$(INST_MAN1DIR) $(DESTINSTALLVENDORMAN1DIR) \
-		$(INST_MAN3DIR) $(DESTINSTALLVENDORMAN3DIR)
+		$(INST_MAN3DIR) $(DESTINSTALLVENDORMAN3DIR) \
+		$(INST_HTMLDIR) $(DESTINSTALLVENDORHTMLDIR)
 
 doc_perl_install ::
 	$(NOECHO) $(ECHO) Appending installation info to $(DESTINSTALLARCHLIB)/perllocal.pod
@@ -697,7 +727,7 @@ doc_vendor_install ::
 		>> $(DESTINSTALLARCHLIB)\perllocal.pod
 
 
-uninstall :: uninstall_from_$(INSTALLDIRS)dirs
+uninstall :: uninstall_from_$(INSTALLDIRS)dirs doc_update
 	$(NOECHO) $(NOOP)
 
 uninstall_from_perldirs ::
@@ -790,7 +820,7 @@ ppd:
 	$(NOECHO) $(ECHO) "        <DEPENDENCY NAME=\"Hash-Type\" VERSION=\"1,0,0,0\" />" >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) "        <DEPENDENCY NAME=\"Search-QueryParser\" VERSION=\"0,91,0,0\" />" >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) "        <OS NAME=\"$(OSNAME)\" />" >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) "        <ARCHITECTURE NAME=\"MSWin32-x86-multi-thread\" />" >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) "        <ARCHITECTURE NAME=\"MSWin32-x86-multi-thread-5.8\" />" >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) "        <CODEBASE HREF=\"\" />" >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) "    </IMPLEMENTATION>" >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) "</SOFTPKG>" >> $(DISTNAME).ppd

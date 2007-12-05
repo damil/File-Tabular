@@ -6,7 +6,7 @@ WriteMakefile(
     NAME              => 'File::Tabular',
     VERSION_FROM      => 'lib/File/Tabular.pm', # finds $VERSION
     PREREQ_PM         => {'Hash::Type' => "1.0",
-			  'Search::QueryParser' => "0.91" },
+			  'Search::QueryParser' => "0.92" },
     ($] >= 5.005 ?     ## Add these new keywords supported since 5.005
       (ABSTRACT_FROM  => 'lib/File/Tabular.pm', # retrieve abstract from module
        AUTHOR         => 'Laurent Dami <laurent.dami AT etat ge ch>') : ()),

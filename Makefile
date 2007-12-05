@@ -1,7 +1,7 @@
 # This Makefile is for the File::Tabular extension to perl.
 #
 # It was generated automatically by MakeMaker version
-# 6.30 (Revision: Revision: 4535 ) from the contents of
+# 6.3201 (Revision: 19606) from the contents of
 # Makefile.PL. Don't edit this file, edit Makefile.PL instead.
 #
 #       ANY CHANGES MADE HERE WILL BE LOST!
@@ -13,7 +13,7 @@
 #     ABSTRACT_FROM => q[lib/File/Tabular.pm]
 #     AUTHOR => q[Laurent Dami <laurent.dami AT etat ge ch>]
 #     NAME => q[File::Tabular]
-#     PREREQ_PM => { Search::QueryParser=>q[0.91], Hash::Type=>q[1.0] }
+#     PREREQ_PM => { Search::QueryParser=>q[0.92], Hash::Type=>q[1.0] }
 #     VERSION_FROM => q[lib/File/Tabular.pm]
 
 # --- MakeMaker post_initialize section:
@@ -21,7 +21,7 @@
 
 # --- MakeMaker const_config section:
 
-# These definitions are from config.sh (via C:/Perl/lib/Config.pm)
+# These definitions are from config.sh (via d:/Perl/lib/Config.pm)
 
 # They may have been overridden via Makefile.PL or on the command line
 AR = ar
@@ -30,20 +30,20 @@ CCCDLFLAGS =
 CCDLFLAGS =  
 DLEXT = dll
 DLSRC = dl_win32.xs
-LD = gcc
-LDDLFLAGS = -mdll -L"C:\Perl\lib\CORE"
-LDFLAGS = -nologo -nodefaultlib -debug -opt:ref,icf  -libpath:"C:\Perl\lib\CORE"  -machine:x86
-LIBC = msvcrt.lib
-LIB_EXT = .lib
-OBJ_EXT = .o
-OSNAME = MSWin32
-OSVERS = 5.0
-RANLIB = rem
-SITELIBEXP = C:\Perl\site\lib
-SITEARCHEXP = C:\Perl\site\lib
-SO = dll
 EXE_EXT = .exe
 FULL_AR = 
+LD = g++
+LDDLFLAGS = -mdll -L"d:\perl\lib\CORE"
+LDFLAGS = -L"d:\perl\lib\CORE"
+LIBC = msvcrt.lib
+LIB_EXT = .a
+OBJ_EXT = .o
+OSNAME = MSWin32
+OSVERS = 5.00
+RANLIB = rem
+SITELIBEXP = d:\Perl\site\lib
+SITEARCHEXP = d:\Perl\site\lib
+SO = dll
 VENDORARCHEXP = 
 VENDORLIBEXP = 
 
@@ -54,11 +54,11 @@ DIRFILESEP = ^\
 DFSEP = $(DIRFILESEP)
 NAME = File::Tabular
 NAME_SYM = File_Tabular
-VERSION = 0.70
+VERSION = 0.71
 VERSION_MACRO = VERSION
-VERSION_SYM = 0_70
+VERSION_SYM = 0_71
 DEFINE_VERSION = -D$(VERSION_MACRO)=\"$(VERSION)\"
-XS_VERSION = 0.70
+XS_VERSION = 0.71
 XS_VERSION_MACRO = XS_VERSION
 XS_DEFINE_VERSION = -D$(XS_VERSION_MACRO)=\"$(XS_VERSION)\"
 INST_ARCHLIB = blib\arch
@@ -73,61 +73,61 @@ MAN3EXT = 3
 INSTALLDIRS = site
 DESTDIR = 
 PREFIX = $(SITEPREFIX)
-PERLPREFIX = C:\Perl
-SITEPREFIX = C:\Perl\site
+PERLPREFIX = d:\perl
+SITEPREFIX = d:\perl\site
 VENDORPREFIX = 
-INSTALLPRIVLIB = C:\Perl\lib
+INSTALLPRIVLIB = d:\perl\lib
 DESTINSTALLPRIVLIB = $(DESTDIR)$(INSTALLPRIVLIB)
-INSTALLSITELIB = C:\Perl\site\lib
+INSTALLSITELIB = d:\perl\site\lib
 DESTINSTALLSITELIB = $(DESTDIR)$(INSTALLSITELIB)
 INSTALLVENDORLIB = 
 DESTINSTALLVENDORLIB = $(DESTDIR)$(INSTALLVENDORLIB)
-INSTALLARCHLIB = C:\Perl\lib
+INSTALLARCHLIB = d:\perl\lib
 DESTINSTALLARCHLIB = $(DESTDIR)$(INSTALLARCHLIB)
-INSTALLSITEARCH = C:\Perl\site\lib
+INSTALLSITEARCH = d:\perl\site\lib
 DESTINSTALLSITEARCH = $(DESTDIR)$(INSTALLSITEARCH)
 INSTALLVENDORARCH = 
 DESTINSTALLVENDORARCH = $(DESTDIR)$(INSTALLVENDORARCH)
-INSTALLBIN = C:\Perl\bin
+INSTALLBIN = d:\perl\bin
 DESTINSTALLBIN = $(DESTDIR)$(INSTALLBIN)
-INSTALLSITEBIN = C:\Perl\bin
+INSTALLSITEBIN = d:\perl\site\bin
 DESTINSTALLSITEBIN = $(DESTDIR)$(INSTALLSITEBIN)
 INSTALLVENDORBIN = 
 DESTINSTALLVENDORBIN = $(DESTDIR)$(INSTALLVENDORBIN)
-INSTALLSCRIPT = C:\Perl\bin
+INSTALLSCRIPT = d:\perl\bin
 DESTINSTALLSCRIPT = $(DESTDIR)$(INSTALLSCRIPT)
 INSTALLSITESCRIPT = $(INSTALLSCRIPT)
 DESTINSTALLSITESCRIPT = $(DESTDIR)$(INSTALLSITESCRIPT)
 INSTALLVENDORSCRIPT = 
 DESTINSTALLVENDORSCRIPT = $(DESTDIR)$(INSTALLVENDORSCRIPT)
-INSTALLMAN1DIR = C:\Perl\man\man1
+INSTALLMAN1DIR = d:\perl\man\man1
 DESTINSTALLMAN1DIR = $(DESTDIR)$(INSTALLMAN1DIR)
 INSTALLSITEMAN1DIR = $(INSTALLMAN1DIR)
 DESTINSTALLSITEMAN1DIR = $(DESTDIR)$(INSTALLSITEMAN1DIR)
 INSTALLVENDORMAN1DIR = 
 DESTINSTALLVENDORMAN1DIR = $(DESTDIR)$(INSTALLVENDORMAN1DIR)
-INSTALLMAN3DIR = C:\Perl\man\man3
+INSTALLMAN3DIR = d:\perl\man\man3
 DESTINSTALLMAN3DIR = $(DESTDIR)$(INSTALLMAN3DIR)
 INSTALLSITEMAN3DIR = $(INSTALLMAN3DIR)
 DESTINSTALLSITEMAN3DIR = $(DESTDIR)$(INSTALLSITEMAN3DIR)
 INSTALLVENDORMAN3DIR = 
 DESTINSTALLVENDORMAN3DIR = $(DESTDIR)$(INSTALLVENDORMAN3DIR)
-INSTALLHTMLDIR = C:\Perl\html
+INSTALLHTMLDIR = d:\perl\html
 DESTINSTALLHTMLDIR = $(DESTDIR)$(INSTALLHTMLDIR)
-INSTALLSITEHTMLDIR = C:\Perl\html
+INSTALLSITEHTMLDIR = d:\perl\html
 DESTINSTALLSITEHTMLDIR = $(DESTDIR)$(INSTALLSITEHTMLDIR)
-INSTALLVENDORHTMLDIR = C:\Perl\html
+INSTALLVENDORHTMLDIR = d:\perl\html
 DESTINSTALLVENDORHTMLDIR = $(DESTDIR)$(INSTALLVENDORHTMLDIR)
-PERL_LIB = C:\Perl\lib
-PERL_ARCHLIB = C:\Perl\lib
-LIBPERL_A = libperl.lib
+PERL_LIB = d:\Perl\lib
+PERL_ARCHLIB = d:\Perl\lib
+LIBPERL_A = libperl.a
 FIRST_MAKEFILE = Makefile
 MAKEFILE_OLD = Makefile.old
 MAKE_APERL_FILE = Makefile.aperl
 PERLMAINCC = $(CC)
-PERL_INC = C:\Perl\lib\CORE
-PERL = C:\Perl\bin\perl.exe
-FULLPERL = C:\Perl\bin\perl.exe
+PERL_INC = D:\Perl\lib\CORE
+PERL = D:\Perl\bin\perl.exe
+FULLPERL = D:\Perl\bin\perl.exe
 ABSPERL = $(PERL)
 PERLRUN = $(PERL)
 FULLPERLRUN = $(FULLPERL)
@@ -139,14 +139,15 @@ PERL_CORE = 0
 PERM_RW = 644
 PERM_RWX = 755
 
-MAKEMAKER   = C:/Perl/lib/ExtUtils/MakeMaker.pm
-MM_VERSION  = 6.30
-MM_REVISION = Revision: 4535 
+MAKEMAKER   = d:/Perl/lib/ExtUtils/MakeMaker.pm
+MM_VERSION  = 6.3201
+MM_REVISION = 19606
 
 # FULLEXT = Pathname for extension directory (eg Foo/Bar/Oracle).
 # BASEEXT = Basename part of FULLEXT. May be just equal FULLEXT. (eg Oracle)
 # PARENT_NAME = NAME without BASEEXT and no trailing :: (eg Foo::Bar)
 # DLBASE  = Basename part of dynamic library. May be just equal BASEEXT.
+MAKE = nmake
 FULLEXT = File\Tabular
 BASEEXT = Tabular
 PARENT_NAME = File
@@ -192,12 +193,12 @@ PM_TO_BLIB = lib/File/Tabular.pm \
 
 
 # --- MakeMaker platform_constants section:
-MM_Win32_VERSION = 1.12
+MM_Win32_VERSION = 1.1401
 
 
 # --- MakeMaker tool_autosplit section:
 # Usage: $(AUTOSPLITFILE) FileToSplit AutoDirToSplitInto
-AUTOSPLITFILE = $(ABSPERLRUN)  -e "use AutoSplit;  autosplit($$ARGV[0], $$ARGV[1], 0, 1, 1)"
+AUTOSPLITFILE = $(ABSPERLRUN)  -e "use AutoSplit;  autosplit($$ARGV[0], $$ARGV[1], 0, 1, 1)" --
 
 
 
@@ -218,11 +219,11 @@ UMASK_NULL = umask 0
 DEV_NULL = > NUL
 MKPATH = $(ABSPERLRUN) "-MExtUtils::Command" -e mkpath
 EQUALIZE_TIMESTAMP = $(ABSPERLRUN) "-MExtUtils::Command" -e eqtime
-ECHO = $(ABSPERLRUN) -l -e "print qq{@ARGV}"
-ECHO_N = $(ABSPERLRUN)  -e "print qq{@ARGV}"
+ECHO = $(ABSPERLRUN) -l -e "print qq{@ARGV}" --
+ECHO_N = $(ABSPERLRUN)  -e "print qq{@ARGV}" --
 UNINST = 0
 VERBINST = 0
-MOD_INSTALL = $(ABSPERLRUN) -MExtUtils::Install -e "install({@ARGV}, '$(VERBINST)', 0, '$(UNINST)');"
+MOD_INSTALL = $(ABSPERLRUN) -MExtUtils::Install -e "install({@ARGV}, '$(VERBINST)', 0, '$(UNINST)');" --
 DOC_INSTALL = $(ABSPERLRUN) "-MExtUtils::Command::MM" -e perllocal_install
 UNINSTALL = $(ABSPERLRUN) "-MExtUtils::Command::MM" -e uninstall
 WARN_IF_OLD_PACKLIST = $(ABSPERLRUN) "-MExtUtils::Command::MM" -e warn_if_old_packlist
@@ -253,7 +254,7 @@ RCS_LABEL = rcs -Nv$(VERSION_SYM): -q
 DIST_CP = best
 DIST_DEFAULT = tardist
 DISTNAME = File-Tabular
-DISTVNAME = File-Tabular-0.70
+DISTVNAME = File-Tabular-0.71
 
 
 # --- MakeMaker macro section:
@@ -406,7 +407,6 @@ POD2MAN = $(POD2MAN_EXE)
 
 
 manifypods : pure_all  \
-	lib/File/Tabular.pm \
 	lib/File/Tabular.pm
 	$(NOECHO) $(POD2MAN) --section=3 --perm_rw=$(PERM_RW) \
 	  lib/File/Tabular.pm $(INST_MAN3DIR)\File.Tabular.$(MAN3EXT) 
@@ -434,19 +434,11 @@ htmlifypods :  \
 
 # --- MakeMaker subdirs section:
 
-# The default clean, realclean and test targets in this Makefile
-# have automatically been given entries for each subdir.
-
-
-subdirs ::
-	$(NOECHO) cd File-Tabular-0.67
-	$(MAKE) $(USEMAKEFILE) $(FIRST_MAKEFILE) all $(PASTHRU)
-	cd ..
-
+# none
 
 # --- MakeMaker clean_subdirs section:
 clean_subdirs :
-	$(ABSPERLRUN)  -e "chdir 'File-Tabular-0.67';  system '$(MAKE) clean' if -f '$(FIRST_MAKEFILE)';"
+	$(NOECHO) $(NOOP)
 
 
 # --- MakeMaker clean section:
@@ -466,10 +458,10 @@ clean :: clean_subdirs
 	  pm_to_blib blibdirs.ts \
 	  core.[0-9][0-9][0-9][0-9][0-9] *perl.core \
 	  core.*perl.*.? $(MAKE_APERL_FILE) \
-	  $(BASEEXT).def perl \
+	  perl $(BASEEXT).def \
 	  core.[0-9][0-9][0-9] mon.out \
-	  lib$(BASEEXT).def perl.exe \
-	  perlmain.c so_locations \
+	  lib$(BASEEXT).def perlmain.c \
+	  perl.exe so_locations \
 	  $(BASEEXT).exp 
 	- $(RM_RF) \
 	  dll.exp dll.base \
@@ -479,8 +471,7 @@ clean :: clean_subdirs
 
 # --- MakeMaker realclean_subdirs section:
 realclean_subdirs :
-	- $(ABSPERLRUN)  -e "chdir 'File-Tabular-0.67';  system '$(MAKE) $(USEMAKEFILE) $(MAKEFILE_OLD) realclean' if -f '$(MAKEFILE_OLD)';"
-	- $(ABSPERLRUN)  -e "chdir 'File-Tabular-0.67';  system '$(MAKE) $(USEMAKEFILE) $(FIRST_MAKEFILE) realclean' if -f '$(FIRST_MAKEFILE)';"
+	$(NOECHO) $(NOOP)
 
 
 # --- MakeMaker realclean section:
@@ -495,18 +486,21 @@ realclean purge ::  clean realclean_subdirs
 # --- MakeMaker metafile section:
 metafile : create_distdir
 	$(NOECHO) $(ECHO) Generating META.yml
-	$(NOECHO) $(ECHO) "# http://module-build.sourceforge.net/META-spec.html" > META_new.yml
-	$(NOECHO) $(ECHO) "#XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#" >> META_new.yml
-	$(NOECHO) $(ECHO) "name:         File-Tabular" >> META_new.yml
-	$(NOECHO) $(ECHO) "version:      0.70" >> META_new.yml
-	$(NOECHO) $(ECHO) "version_from: lib/File/Tabular.pm" >> META_new.yml
-	$(NOECHO) $(ECHO) "installdirs:  site" >> META_new.yml
-	$(NOECHO) $(ECHO) "requires:" >> META_new.yml
+	$(NOECHO) $(ECHO) "--- #YAML:1.0" > META_new.yml
+	$(NOECHO) $(ECHO) "name:                File-Tabular" >> META_new.yml
+	$(NOECHO) $(ECHO) "version:             0.71" >> META_new.yml
+	$(NOECHO) $(ECHO) "abstract:            searching and editing flat tabular files" >> META_new.yml
+	$(NOECHO) $(ECHO) "license:             ~" >> META_new.yml
+	$(NOECHO) $(ECHO) "generated_by:        ExtUtils::MakeMaker version 6.3201" >> META_new.yml
+	$(NOECHO) $(ECHO) "distribution_type:   module" >> META_new.yml
+	$(NOECHO) $(ECHO) "requires:     " >> META_new.yml
 	$(NOECHO) $(ECHO) "    Hash::Type:                    1.0" >> META_new.yml
-	$(NOECHO) $(ECHO) "    Search::QueryParser:           0.91" >> META_new.yml
-	$(NOECHO) $(ECHO) "" >> META_new.yml
-	$(NOECHO) $(ECHO) "distribution_type: module" >> META_new.yml
-	$(NOECHO) $(ECHO) "generated_by: ExtUtils::MakeMaker version 6.30" >> META_new.yml
+	$(NOECHO) $(ECHO) "    Search::QueryParser:           0.92" >> META_new.yml
+	$(NOECHO) $(ECHO) "meta-spec:" >> META_new.yml
+	$(NOECHO) $(ECHO) "    url:     http://module-build.sourceforge.net/META-spec-v1.2.html" >> META_new.yml
+	$(NOECHO) $(ECHO) "    version: 1.2" >> META_new.yml
+	$(NOECHO) $(ECHO) "author:" >> META_new.yml
+	$(NOECHO) $(ECHO) "    - Laurent Dami <laurent.dami AT etat ge ch>" >> META_new.yml
 	-$(NOECHO) $(MV) META_new.yml $(DISTVNAME)/META.yml
 
 
@@ -537,7 +531,7 @@ veryclean : realclean
 
 dist : $(DIST_DEFAULT) $(FIRST_MAKEFILE)
 	$(NOECHO) $(ABSPERLRUN) -l -e "print 'Warning: Makefile possibly out of date with $(VERSION_FROM)'\
-    if -e '$(VERSION_FROM)' and -M '$(VERSION_FROM)' < -M '$(FIRST_MAKEFILE)';"
+    if -e '$(VERSION_FROM)' and -M '$(VERSION_FROM)' < -M '$(FIRST_MAKEFILE)';" --
 
 tardist : $(DISTVNAME).tar$(SUFFIX)
 	$(NOECHO) $(NOOP)
@@ -603,7 +597,7 @@ ci :
 distmeta : create_distdir metafile
 	$(NOECHO) cd $(DISTVNAME)
 	$(ABSPERLRUN) -MExtUtils::Manifest=maniadd -e "eval { maniadd({q{META.yml} => q{Module meta-data (added by MakeMaker)}}) } \
-    or print \"Could not add META.yml to MANIFEST: $${'@'}\n\""
+    or print \"Could not add META.yml to MANIFEST: $${'@'}\n\"" --
 	cd ..
 
 
@@ -612,7 +606,7 @@ distmeta : create_distdir metafile
 distsignature : create_distdir
 	$(NOECHO) cd $(DISTVNAME)
 	$(ABSPERLRUN) -MExtUtils::Manifest=maniadd -e "eval { maniadd({q{SIGNATURE} => q{Public-key signature (added by MakeMaker)}}) } \
-    or print \"Could not add SIGNATURE to MANIFEST: $${'@'}\n\""
+    or print \"Could not add SIGNATURE to MANIFEST: $${'@'}\n\"" --
 	cd ..
 	$(NOECHO) cd $(DISTVNAME)
 	$(TOUCH) SIGNATURE
@@ -769,7 +763,7 @@ $(FIRST_MAKEFILE) : Makefile.PL $(CONFIGDEP)
 
 # --- MakeMaker makeaperl section ---
 MAP_TARGET    = perl
-FULLPERL      = C:\Perl\bin\perl.exe
+FULLPERL      = D:\Perl\bin\perl.exe
 
 $(MAP_TARGET) :: static $(MAKE_APERL_FILE)
 	$(MAKE) $(USEMAKEFILE) $(MAKE_APERL_FILE) $@
@@ -777,7 +771,7 @@ $(MAP_TARGET) :: static $(MAKE_APERL_FILE)
 $(MAKE_APERL_FILE) : $(FIRST_MAKEFILE) pm_to_blib
 	$(NOECHO) $(ECHO) Writing \"$(MAKE_APERL_FILE)\" for this $(MAP_TARGET)
 	$(NOECHO) $(PERLRUNINST) \
-		Makefile.PL DIR=File-Tabular-0.67 \
+		Makefile.PL DIR= \
 		MAKEFILE=$(MAKE_APERL_FILE) LINKTYPE=static \
 		MAKEAPERL=1 NORECURS=1 CCCDLFLAGS=
 
@@ -793,9 +787,6 @@ TESTDB_SW = -d
 testdb :: testdb_$(LINKTYPE)
 
 test :: $(TEST_TYPE)
-	$(NOECHO) $(ABSPERLRUN)  -e "chdir 'File-Tabular-0.67';  \
-system '$(MAKE) test $(PASTHRU)' \
-    if -f '$(FIRST_MAKEFILE)';"
 
 test_dynamic :: pure_all
 	$(FULLPERLRUN) "-MExtUtils::Command::MM" "-e" "test_harness($(TEST_VERBOSE), '$(INST_LIB)', '$(INST_ARCHLIB)')" $(TEST_FILES)
@@ -812,13 +803,13 @@ testdb_static :: testdb_dynamic
 # --- MakeMaker ppd section:
 # Creates a PPD (Perl Package Description) for a binary distribution.
 ppd:
-	$(NOECHO) $(ECHO) "<SOFTPKG NAME=\"$(DISTNAME)\" VERSION=\"0,70,0,0\">" > $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) "<SOFTPKG NAME=\"$(DISTNAME)\" VERSION=\"0,71,0,0\">" > $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) "    <TITLE>$(DISTNAME)</TITLE>" >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) "    <ABSTRACT>searching and editing flat tabular files</ABSTRACT>" >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) "    <AUTHOR>Laurent Dami &lt;laurent.dami AT etat ge ch&gt;</AUTHOR>" >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) "    <IMPLEMENTATION>" >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) "        <DEPENDENCY NAME=\"Hash-Type\" VERSION=\"1,0,0,0\" />" >> $(DISTNAME).ppd
-	$(NOECHO) $(ECHO) "        <DEPENDENCY NAME=\"Search-QueryParser\" VERSION=\"0,91,0,0\" />" >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) "        <DEPENDENCY NAME=\"Search-QueryParser\" VERSION=\"0,92,0,0\" />" >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) "        <OS NAME=\"$(OSNAME)\" />" >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) "        <ARCHITECTURE NAME=\"MSWin32-x86-multi-thread-5.8\" />" >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) "        <CODEBASE HREF=\"\" />" >> $(DISTNAME).ppd
@@ -829,7 +820,7 @@ ppd:
 # --- MakeMaker pm_to_blib section:
 
 pm_to_blib : $(TO_INST_PM)
-	$(NOECHO) $(ABSPERLRUN) -MExtUtils::Install -e "pm_to_blib({@ARGV}, '$(INST_LIB)\auto', '$(PM_FILTER)')" \
+	$(NOECHO) $(ABSPERLRUN) -MExtUtils::Install -e "pm_to_blib({@ARGV}, '$(INST_LIB)\auto', '$(PM_FILTER)')" -- \
 	  lib/File/Tabular.pm blib\lib\File\Tabular.pm 
 	$(NOECHO) $(TOUCH) pm_to_blib
 

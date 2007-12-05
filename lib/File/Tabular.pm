@@ -392,7 +392,8 @@ sub new {
 }
 
 
-sub _open { # stupid : because of 'open' funny prototyping, cannot pass an array directly
+sub _open { # stupid : because of 'open' strange prototyping, 
+            # cannot pass an array directly
   my $result = (ref $_[1] eq 'GLOB') ? $_[0] = $_[1]                         : 
                @_ > 3                ? open($_[0], $_[1], $_[2], @_[3..$#_]) :
                @_ > 2                ? open($_[0], $_[1], $_[2])             : 
@@ -1158,19 +1159,19 @@ sub _cplSubQ {
     /^#$/   # compare source with a list of numbers
       and do {
         my $has_state = eval "use feature 'state'; 1"; # true from Perl 5.10
-        my $decl = $has_state ? "use feature 'state'; state \$numvec = ''" 
-                              : "my \$numvec = '' if 0";
+        my $decl = $has_state ? "use feature 'state'; state \$numvec" 
+                              : "my \$numvec if 0"; # undocumented hack
 
         # build a block that at first call creates a bit vector; then at 
         # each call, the data source is compared with the bit vector
         return qq{
           do {
             $decl;
+            no warnings qw/uninitialized numeric/;
             \$numvec or do {
               my \$nums = q{$subQ->{value}};
               vec(\$numvec, \$_, 1) = 1 for (\$nums =~ /\\d+/g);
             };
-            no warnings 'numeric';
             vec(\$numvec, int($src), 1);
           }
         };

@@ -1,5 +1,8 @@
 Revision history for Perl extension File::Tabular.
 
+0.72 04.11.2008
+  - no warnings 'numeric' when applying numeric filters on empty fields
+
 0.71 01.12.2007 
   - new operator '#' for matching with a vector of integers
 

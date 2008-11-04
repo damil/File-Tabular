@@ -10,7 +10,7 @@ package File::Tabular;
 
 
 
-our $VERSION = "0.71"; 
+our $VERSION = "0.72"; 
 
 use strict;
 use warnings;
@@ -1064,7 +1064,8 @@ sub compileFilter {
     $query = Search::QueryParser->new->parse($query, $implicitPlus);
   }
 
-  eval 'sub {(' . $self->_cplQ($query) . ') ? $_[0] : undef;}' 
+  my $code = $self->_cplQ($query);
+  eval 'sub {no warnings "numeric"; (' .$code. ') ? $_[0] : undef;}' 
     or croak $@;
 }
 

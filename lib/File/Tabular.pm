@@ -53,7 +53,7 @@ File::Tabular - searching and editing flat tabular files
   print $hashRows->{someKey}{someOtherField};
 
   # open for updates, and remember the updates in a journal file
-  $f = new File::Tabular("+<$filename", {journal => ">>$journalFile"});
+  $f = new File::Tabular("+<$filename", {journal => $journalFile});
 
   # updates at specific positions (line numbers)
   $f->splices(4  => 2, undef,	# delete 2 lines from position 4

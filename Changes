@@ -1,5 +1,8 @@
 Revision history for Perl extension File::Tabular.
 
+
+  - Fixed doc bug :   File::Tabular->new(..., {journal => $journalFile});
+
 0.72 04.11.2008
   - no warnings 'numeric' when applying numeric filters on empty fields
 

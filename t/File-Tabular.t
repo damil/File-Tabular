@@ -2,7 +2,7 @@ use strict;
 use warnings;
 no warnings 'uninitialized';
 
-use Test::More tests => 30 ;
+use Test::More tests => 32 ;
 
 diag( "Testing File::Tabular $File::Tabular::VERSION, Perl $], $^X" );
 
@@ -36,9 +36,14 @@ is($., 0, 'rewind');
 # same thing, more complex filter
 $rows = $f->fetchall(where => '+Description:(+accent -o -*cu* ) -Name=~"^E"');
 
-
 is($rows->[0]{Name}, 'Agrave', 'Agrave');
 is(scalar(@$rows), 7, 'complex filter n lines');
+$f->rewind;
+
+# use a regex in query # as of v0.72, fails with Perl >= 5.22
+$rows = $f->fetchall(where => '+Name:[a-z]*');
+is($rows->[0]{Name}, 'amp', 'amp (regex in query)');
+is(scalar(@$rows), 67, 'all rows (regex in query)');
 $f->rewind;
 
 

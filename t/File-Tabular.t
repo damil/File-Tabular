@@ -1,6 +1,8 @@
+use utf8;
 use strict;
 use warnings;
 no warnings 'uninitialized';
+use FindBin;
 
 use Test::More tests => 32 ;
 
@@ -12,7 +14,7 @@ BEGIN {use_ok("File::Tabular");}
 
 unlink $tmpJournal;
 
-my $f = new File::Tabular("t/htmlEntities.txt", 
+my $f = new File::Tabular("$FindBin::Bin/htmlEntities.txt", 
 			  {avoidMatchKey => 1});
 isa_ok($f, 'File::Tabular', "open DATA");
 
@@ -70,7 +72,7 @@ $rows = $f->fetchall(where => 'circumflex', key => 'Name');
 isa_ok($rows, 'HASH', "fetchall rows Name");
 my $r = $rows->{ucirc};
 isa_ok($r, 'HASH');
-is($r->{Char}, 'û', 'ucirc');
+is($r->{Char}, 'Ã»', 'ucirc');
 
 # open a new file for writing and write some lines
 my $w = new File::Tabular("+>", undef, # temporary file, see perlfunc/open

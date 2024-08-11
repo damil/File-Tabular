@@ -6,12 +6,6 @@ package File::Tabular;
 #        -optimize: postpone preMatch/postMatch until display time
 #        -escaping fieldSep : make it optional
 
-#        - synopsis : example of file cloning with select (e.g. year=2004)
-
-
-
-our $VERSION = "0.72"; 
-
 use strict;
 use warnings;
 no  warnings 'uninitialized';
@@ -22,6 +16,9 @@ use Hash::Type;
 use Search::QueryParser 0.92;
 use File::Temp;
 
+our $VERSION = "0.73"; 
+
+
 =head1 NAME
 
 File::Tabular - searching and editing flat tabular files
@@ -29,7 +26,7 @@ File::Tabular - searching and editing flat tabular files
 =head1 SYNOPSIS
 
   use File::Tabular;
-  my $f = new File::Tabular($filename);
+  my $f = File::Tabular->new($filename);
 
   my $row = $f->fetchrow;
   print $row->{field1}, $row->{field2};
@@ -52,7 +49,7 @@ File::Tabular - searching and editing flat tabular files
   print $hashRows->{someKey}{someOtherField};
 
   # open for updates, and remember the updates in a journal file
-  $f = new File::Tabular("+<$filename", {journal => $journalFile});
+  $f = File::Tabular->new("+<$filename", {journal => $journalFile});
 
   # updates at specific positions (line numbers)
   $f->splices(4  => 2, undef,   # delete 2 lines from position 4
@@ -79,7 +76,7 @@ File::Tabular - searching and editing flat tabular files
 
 
   # replay the updates on a backup file
-  my $bck = new File::Tabular("+<$backupFile");
+  my $bck = File::Tabular->new("+<$backupFile");
   $bck->playJournal($journalFile);
 
   # get info from associated filehandle
@@ -147,7 +144,7 @@ frequent write operations.
 Creates a new tabular file object. 
 The list of arguments C<open1, open2, ...> is  fed directly to
 L<perlfunc/open> for opening the associated file. 
-Can also be a reference to an already opened filehandle.
+A reference to an already opened filehandle can also be given instead.
 
 The final hash ref is a collection of optional parameters, taken
 from the following list :
@@ -162,6 +159,12 @@ Escape sequences like C<\t> are admitted.
 =item recordSep
 
 record separator ('\n' by default).
+
+=item crlf
+
+if true, filehandles use the L<PerlIO> layer C<:crlf>.
+This is the default, for unfortunate historical reasons.
+
 
 =item fieldSepRepl
 
@@ -201,7 +204,7 @@ this will be LOCK_EX if B<open1> contains 'E<gt>' or
 
 =item flockAttempts
 
-Number of attempts to lock the file,
+number of attempts to lock the file,
 at 1 second intervals, before returning an error.
 Zero by default.
 If nonzero, LOCK_NB is added to flockMode;
@@ -290,6 +293,7 @@ use constant BUFSIZE => 1 << 21; # 2MB, used in copyData
 use constant DEFAULT => {
   fieldSep      => '|',
   recordSep     => "\n",
+  crlf          => 1,
   autoNumField  => undef,
   autoNumChar   => '#',
   autoNum       => 1,
@@ -362,7 +366,7 @@ sub new {
 
   # field headers
   my $h = $args->{headers} || [split($self->{rxFieldSep}, $self->_getLine, -1)];
-  $self->{ht} = new Hash::Type(@$h);
+  $self->{ht} = Hash::Type->new(@$h);
   my $must_print_headers = exists $args->{printHeaders} ? $args->{printHeaders} : ($_[0] =~ />/);
   $self->_printRow(@$h) if $must_print_headers;
 
@@ -390,11 +394,9 @@ sub _open { # CORE::open is prototyped, so it cannot take args from an array. Th
                @_ > 3                ? open($_[0], $_[1], $_[2], @_[3..$#_]) :
                @_ > 2                ? open($_[0], $_[1], $_[2])             :
                                        open($_[0], $_[1]);
-  binmode($_[0], ":crlf") if $result;
+  binmode($_[0], ":crlf") if $result && $self->{crlf};
   return $result;
 }
-
-
 
 
 sub _getLine { 
@@ -738,8 +740,8 @@ sub splices {
     }
     elsif (           # we want to put data in the middle of file and ..
            not $TMP and $self->stat->{size} > $self->{dataStart}) { 
-      $TMP = new File::Temp or croak "no tempfile: $^E";
-      binmode($TMP, ":crlf");
+      $TMP = File::Temp->new or croak "no tempfile: $^E";
+      binmode($TMP, ":crlf") if $self->{crlf};
 
       $self->rewind;
       copyData($self->{FH}, $TMP);
@@ -838,8 +840,8 @@ sub writeKeys {
   my $clone = bless {%$self}; 
   $clone->{journal} = undef;
   $clone->{FH} = undef;  
-  $clone->{FH} = new File::Temp or croak "no tempfile: $^E";
-  binmode($clone->{FH}, ":crlf");
+  $clone->{FH} = File::Temp->new or croak "no tempfile: $^E";
+  binmode($clone->{FH}, ":crlf") if $self->{crlf};
 
   seek $self->{FH}, 0, 0; # rewind to start of FILE (not start of DATA)
   copyData($self->{FH}, $clone->{FH});

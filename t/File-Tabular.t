@@ -3,8 +3,9 @@ use strict;
 use warnings;
 no warnings 'uninitialized';
 use FindBin;
+use File::Temp qw();
 
-use Test::More tests => 32 ;
+use Test::More;
 
 diag( "Testing File::Tabular $File::Tabular::VERSION, Perl $], $^X" );
 
@@ -75,7 +76,7 @@ isa_ok($r, 'HASH');
 is($r->{Char}, 'û', 'ucirc');
 
 # open a new file for writing and write some lines
-my $w = new File::Tabular("+>", undef, # temporary file, see perlfunc/open
+my $w = new File::Tabular("+>", File::Temp->new->filename, 
 		       {fieldSep => '&',
 			headers => [$f->{ht}->names],
 		        autoNumField => 'Num',
@@ -145,7 +146,7 @@ close $w->{journal}{FH}; # need explicit close for flush before playJournal
 
 
 # open a new file for replaying journal
-my $w2 = new File::Tabular("+>", undef, # temporary file
+my $w2 = new File::Tabular("+>", File::Temp->new->filename, 
 		       {fieldSep => '&',
 			headers => [$f->{ht}->names],
 		        autoNumField => 'Num'});
@@ -160,3 +161,6 @@ is_deeply($rows, $rows2, "journal");
 ok($f->stat->{size} > 0, "nonempty size");
 ok($f->stat->{mode} > 0, "nonempty block size");
 ok(defined($f->mtime->{hour}), "mtime hour");
+
+done_testing;
+
